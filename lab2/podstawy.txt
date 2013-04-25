@@ -1,0 +1,79 @@
+ 
+a) Czym jest system kontroli wersji?
+
+	System kontroli wersji œledzi wszystkie zmiany dokonywane na
+pliku (lub plikach) i umo¿liwia przywo³anie dowolnej wczeœniejszej wersji. 
+Pozwala on przywróciæ plik(i) do wczeœniejszej wersji, odtworzyæ stan ca³ego 
+projektu, porównaæ wprowadzone zmiany, dowiedzieæ siê kto jako ostatnio 
+zmodyfikowa³ czêœæ projektu powoduj¹c¹ problemy, kto i kiedy wprowadzi³ 
+dan¹ modyfikacjê. Oprócz tego u¿ywanie VCS oznacza, ¿e nawet jeœli pope³nisz 
+b³¹d lub stracisz czêœæ danych, naprawa i odzyskanie ich powinno byæ ³atwe.
+Rozproszony system kontroli wersji jakim jest Git – nie jest wymagany ci¹g³y 
+dostêp do centralnego repozytorium.Nadaje siê do ma³ych i du¿ych 
+projektów. W systemach DVCS (takich jak Git, Mercurial, Bazaar lub Darcs) klienci 
+nie dostaj¹ dostêpu jedynie do najnowszych wersji plików ale w pe³ni kopiuj¹ ca³e
+repozytorium.
+
+ b) Jak wygl¹da typowy "workflow"?
+
+	Typowy workflow wygl¹da nastêpuj¹co:
+Pliki tworzymy i modyfikujemy w katalogu roboczym.
+Jeœli chcemy, by zmiany zosta³y uwzglêdnione, pliki przenosimy do przechowalni.
+Gdy chcemy zachowaæ bie¿¹cy stan projektu w repozytorium, zatwierdzamy zmiany.
+Jeœli chcemy, mo¿emy pomin¹æ etap dodawania plików do przechowalni.
+S³u¿y do tego opcja -a operacji commit
+Trzy stany plików i odpowiadaj¹ce im sekcje projektu:
+- modified(zmodyfikowany)
+git add
+- staged(w przechowalni)
+git commit
+- commited(zatwierdzony)
+
+  c) Czym ró¿ni scentralizowany i rozproszony system kontroli wersji?
+
+	Scentralizowane systemy kontroli wersji (CVCS-Centralized Version Control System). 
+Systemy takie jak CVS, Subversion czy Perforce sk³adaj¹ siê z jednego serwera, który 
+zawiera wszystkie pliki poddane kontroli wersji, oraz klientów którzy mog¹ siê z nim 
+³¹czyæ i uzyskaæ dostêp do najnowszych wersji plików. Przez wiele lat by³ to standardowy 
+model kontroli wersji.Taki schemat posiada wiele zalet, szczególnie w porównaniu z VCS. 
+Dla przyk³adu ka¿dy mo¿e siê zorientowaæ co robi¹ inni uczestnicy projektu. Administratorzy 
+maj¹ dok³adn¹ kontrolê nad uprawnieniami poszczególnych u¿ytkowników. Co wiêcej systemy CVCS
+s¹ tak¿e du¿o ³atwiejsze w zarz¹dzaniu ni¿ lokalne bazy danych u ka¿dego z klientów.
+Niemniej systemy te maj¹ tak¿e powa¿ne wady. Najbardziej oczywist¹ jest problem awarii 
+centralnego serwera. Jeœli serwer przestanie dzia³aæ na przyk³ad na godzinê, to przez tê 
+godzinê nikt nie bêdzie mia³ mo¿liwoœci wspó³pracy nad projektem, ani nawet zapisania zmian 
+nad którymi pracowa³. Jeœli dysk twardy na którym przechowywana jest centralna baza danych 
+zostanie uszkodzony a nie tworzono ¿adnych kopii zapasowych, to mo¿na straciæ absolutnie 
+wszystko-ca³¹ historiê projektu, mo¿e oprócz pojedynczych jego czêœci zapisanych na 
+osobistych komputerach niektórych u¿ytkowników. Lokalne VCS maj¹ ten sam problem-zawsze 
+gdy ca³a historia projektu jest przechowywana tylko w jednym miejscu, istnieje ryzyko utraty
+wiêkszoœci danych.
+	(DVCS-Distributed Version Control System). W systemach DVCS (takich jak Git, Mercurial, 
+Bazaar lub Darcs) klienci nie dostaj¹ dostêpu jedynie do najnowszych wersji plików ale w pe³ni 
+kopiuj¹ ca³e repozytorium. Gdy jeden z serwerów, u¿ywanych przez te systemy do wspó³pracy, 
+ulegnie awarii, repozytorium ka¿dego klienta mo¿e zostaæ po prostu skopiowane na ten serwer w 
+celu przywrócenia go do pracy. Co wiêcej, wiele z tych systemów doœæ dobrze radzi sobie z 
+kilkoma zdalnymi repozytoriami, wiêc mo¿liwa jest jednoczesna wspó³praca z ró¿nymi grupami 
+ludzi nad tym samym projektem. Daje to swobodê wykorzystania ró¿nych schematów pracy, 
+nawet takich które nie s¹ mo¿liwe w scentralizowanych systemach, na przyk³ad modeli 
+hierarchicznych.
+
+  d) Wyt³umacz do czego s³u¿¹ polecenia: 
+
+    init - tworzenie nowego repozytorium;
+    clone - klonowanie istniej¹cego repozytorium;
+    add - dodanie zmienionych plików do wirtualnej listy/do przechowalni;
+    status - aktualny stan pracy nad projektem;
+    diff - podgl¹d wprowadzonych w repozytorium zmian;
+    commit - zapis zmian do repozytorium;
+    reset - restartuje zmiany w lokalnym repozytorium;
+    rm - usuwa pliki z katalogu roboczego;
+    mv - zmiana nazwy pliku w repozytorium;
+    branch - wyœwietla listê ga³êzi w repozytorium;
+    checkout - prze³¹czanie siê pomiêdzy ga³êziami;
+    merge - ³¹czy ga³¹Ÿ z master;
+    log - podgl¹d wszystkich zatwierdzonych zmian;
+    stash - chwilowe odsuniêcie aktualnie wprowadzonych zmian( bez commitowania);
+    pull - pobranie plików ze zdalnego repozytorium i automatyczne wykonanie merge;
+    push - wys³anie zmian na zdalny serwer;
+    diff - podgl¹d wprowadzonych zmian w repozytorium.
